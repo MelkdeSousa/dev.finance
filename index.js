@@ -159,7 +159,7 @@ const validateFieldsForm = () => {
 const formatAmount = value => {
   const amount = Number(value) * 100
 
-  return amount
+  return Math.round(amount)
 }
 
 const formatDate = date => {
