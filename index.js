@@ -3,7 +3,10 @@
 const html = document.querySelector('html')
 const toggleTheme = document.getElementById('toggle')
 
-toggleTheme.addEventListener('change', () => {html.classList.toggle('dark-theme')})
+toggleTheme.addEventListener('change', () => {
+  const isActive = html.classList.toggle('dark-theme')
+  setDarkThemeStorage(isActive)
+})
 
 const modalOverlay = document.querySelector('.modal-overlay')
 const contentTableDataTransaction = document.querySelector(
@@ -32,27 +35,6 @@ const formatCurrency = value => {
 
   return signal + currency
 }
-
-// [
-//   {
-//     id: 1,
-//     description: 'Luz',
-//     amount: -12000,
-//     date: '20/02/2020',
-//   },
-//   {
-//     id: 2,
-//     description: 'Internet',
-//     amount: -11000,
-//     date: '20/02/2020',
-//   },
-//   {
-//     id: 3,
-//     description: 'Freelance',
-//     amount: 400000,
-//     date: '20/02/2020',
-//   },
-// ]
 
 const incomes = () => {
   let income = 0
@@ -207,18 +189,28 @@ const submitForm = event => {
   }
 }
 
-const getStorage = () => {
-  return JSON.parse(localStorage.getItem('dev.finance:transactions')) || []
-}
-const setStorage = transactions => {
+const getTransactionsStorage = () =>
+  JSON.parse(localStorage.getItem('dev.finance:transactions')) || []
+
+const setTrasactionsStorage = transactions => {
   localStorage.setItem('dev.finance:transactions', JSON.stringify(transactions))
+}
+
+const getDarkThemeStorage = () =>
+  JSON.parse(localStorage.getItem('dev.finance:dark_theme_is_active')) || false
+
+const setDarkThemeStorage = isActive =>
+  localStorage.setItem('dev.finance:dark_theme_is_active', isActive)
+
+const setDarkTheme = () => {
+  getDarkThemeStorage() && html.classList.toggle('dark-theme')
 }
 
 const appStart = () => {
   transactions.forEach(mounter)
   updateBalance()
 
-  setStorage(transactions)
+  setTrasactionsStorage(transactions)
 }
 
 const appReload = () => {
@@ -226,6 +218,9 @@ const appReload = () => {
   appStart()
 }
 
-const transactions = getStorage()
+const transactions = getTransactionsStorage()
+toggleTheme.checked = getDarkThemeStorage()
+
+document.onload = setDarkTheme()
 
 appStart()
