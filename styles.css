@@ -1,8 +1,13 @@
 :root {
-  --dark-blue: #363f5f;
-  --green: #49aa26;
-  --light-green: #3dd705;
-  --red: #e92929;
+  --primary: #2c5fcb;
+  --secondary: #22c197;
+  --white: #88a4ff;
+  --black: #454655;
+  --good: #008a64;
+  --bad: #ff6274;
+  --dim: #a9aabc;
+  --dim-2: #eceeff;
+  --light: #f8f8ff;
 }
 
 * {
@@ -16,14 +21,14 @@ html {
 }
 
 body {
-  background: #f0f2f5;
+  background: var(--light);
   font-family: 'Poppins', sans-serif;
 }
 
 h2 {
   margin-top: 3.2rem;
   margin-bottom: 0.8rem;
-  color: var(--dark-blue);
+  color: var(--light);
 
   font-weight: normal;
 }
@@ -46,12 +51,12 @@ h2 {
 }
 
 a {
-  color: var(--green);
+  color: var(--secondary);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--light-green);
+  color: var(--good);
 }
 
 button {
@@ -62,13 +67,13 @@ button {
   border: none;
   border-radius: 0.25rem;
   color: white;
-  background: var(--green);
+  background: var(--secondary);
 
   cursor: pointer;
 }
 
 button:hover {
-  background: var(--light-green);
+  background: var(--good);
 }
 
 .button.new {
@@ -77,8 +82,8 @@ button:hover {
 }
 
 .button.cancel {
-  color: var(--red);
-  border: 2px var(--red) solid;
+  color: var(--bad);
+  border: 2px var(--bad) solid;
 
   height: 50px;
 
@@ -93,14 +98,110 @@ button:hover {
 }
 
 header {
-  background: #2d4a22;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  background: var(--primary);
   padding: 2rem 0 10rem;
   text-align: center;
 }
 
-header h1 {
-  color: #fff;
-  font-weight: 100;
+.wrapper-switch {
+  margin: 10px auto;
+
+  touch-action: pan-x;
+
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.switch-theme {
+  width: 50px;
+  height: 24px;
+  padding: 0;
+  border-radius: 30px;
+  background-color: var(--white);
+  transition: all .2s ease;
+}
+
+.dark {
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0;
+  left: 8px;
+}
+
+.light {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0;
+  right: 10px;
+}
+
+.moon {
+  align-items: center;
+  display: flex;
+  height: 10px;
+  justify-content: center;
+  position: relative;
+  width: 10px;
+}
+
+.moon::before {
+  content: "\1F31C";
+  position: absolute;
+}
+
+.sun {
+  align-items: center;
+  display: flex;
+  height: 10px;
+  justify-content: center;
+  position: relative;
+  width: 10px;
+}
+
+.sun::before {
+  content: "\1F31E";
+  position: absolute;
+}
+
+#toggle {
+  opacity: 0;
+  position: absolute;
+}
+
+.toggle-theme {
+  transition: all .5s cubic-bezier(.23,1,.32,1) 0ms;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  background-color: var(--light);
+  box-sizing: border-box;
+  transition: all .25s ease;
+}
+
+#toggle:checked + .toggle-theme {
+    transform: translateX(24px);
 }
 
 #balance {
@@ -108,18 +209,18 @@ header h1 {
 }
 
 #balance h2 {
-  color: white;
+  color: var(--light);
   margin-top: 0;
 }
 
 .card {
-  background: white;
+  background: var(--white);
   padding: 1.5rem 2rem;
 
   border-radius: 0.25rem;
   margin-bottom: 2rem;
 
-  color: var(--dark-blue);
+  color: var(--light);
 }
 
 .card h3 {
@@ -139,8 +240,8 @@ header h1 {
 }
 
 .card.total {
-  background: var(--green);
-  color: white;
+  background: var(--secondary);
+  color: var(--light);
 }
 
 #transaction {
@@ -150,17 +251,13 @@ header h1 {
 }
 
 #data-transaction {
-
-
   width: 100%;
-  color: #969cb3;
+  color: var(--dim);
   border-spacing: 0 0.5rem;
-
-
 }
 
 #data-transaction thead th {
-  background: white;
+  background: var(--dim-2);
   font-weight: normal;
   padding: 1rem 2rem;
   text-align: left;
@@ -175,7 +272,7 @@ header h1 {
 }
 
 #data-transaction tbody td {
-  background: white;
+  background: var(--dim-2);
   padding: 1rem 2rem;
   font-weight: normal;
 }
@@ -191,15 +288,15 @@ header h1 {
 }
 
 td.description {
-  color: var(--dark-blue);
+  color: var(--black);
 }
 
 td.income {
-  color: #12a454;
+  color: var(--good);
 }
 
 td.expense {
-  color: var(--red);
+  color: var(--bad);
 }
 
 .modal-overlay {
@@ -226,7 +323,7 @@ td.expense {
 }
 
 .modal {
-  background: #f0f2f5;
+  background: var(--light);
   padding: 2.4rem;
 
   position: relative;
@@ -238,6 +335,7 @@ td.expense {
 }
 
 #form h2 {
+  color: var(--black);
   margin-top: 0;
 }
 
@@ -271,7 +369,7 @@ td.expense {
 footer {
   text-align: center;
   padding: 4rem 0 2rem;
-  color: var(--dark-blue);
+  color: var(--black);
   opacity: 0.6;
 }
 
@@ -286,4 +384,26 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.1;
+        transform: translateX(-35%);
+    } to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+.card, .button.new {
+    animation-name: fade;
+    animation-duration: 1.8s;
+}
+.card {
+    animation-name: fade;
+    animation-duration: 1.25s;
+}
+.card {
+    animation-name: fade;
+    animation-duration: 1s;
 }

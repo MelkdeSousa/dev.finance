@@ -1,5 +1,10 @@
 'use strict'
 
+const html = document.querySelector('html')
+const toggleTheme = document.getElementById('toggle')
+
+toggleTheme.addEventListener('change', () => {html.classList.toggle('dark-theme')})
+
 const modalOverlay = document.querySelector('.modal-overlay')
 const contentTableDataTransaction = document.querySelector(
   '#data-transaction tbody'
@@ -10,13 +15,7 @@ const expenseDisplay = document.getElementById('expense-display')
 const totalDisplay = document.getElementById('total-display')
 
 const toggleModal = () => {
-  const isActive = modalOverlay.classList.contains('active')
-
-  if (isActive) {
-    modalOverlay.classList.remove('active')
-  } else {
-    modalOverlay.classList.add('active')
-  }
+  modalOverlay.classList.toggle('active')
 }
 
 const formatCurrency = value => {

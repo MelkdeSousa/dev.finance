@@ -1,0 +1,13 @@
+/*
+Light Theme Pallete
+*/
+
+--primary: #2c5fcb;
+--secondary: #22c197;
+--white: #88a4ff;
+--black: #454655;
+--good: #008a64;
+--bad: #ff6274;
+--dim: #a9aabc;
+--dim-2: #eceeff;
+--light: #f8f8ff;
