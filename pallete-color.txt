@@ -11,3 +11,16 @@ Light Theme Pallete
 --dim: #a9aabc;
 --dim-2: #eceeff;
 --light: #f8f8ff;
+
+/*
+Dark Theme Pallete
+*/
+--primary: #122347;
+--secondary: #178581;
+--white: #95a3bc;
+--black: #f1f1e6;
+--good: #37b9b7;
+--bad: #ff6274;
+--dim: #889fc9;
+--dim-2: #4f658f;
+--light: #1a335f;

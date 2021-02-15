@@ -3,11 +3,23 @@
   --secondary: #22c197;
   --white: #88a4ff;
   --black: #454655;
-  --good: #008a64;
+  --good: #208a86;
   --bad: #ff6274;
   --dim: #a9aabc;
   --dim-2: #eceeff;
   --light: #f8f8ff;
+}
+
+.dark-theme:root {
+  --primary: #122347;
+  --secondary: #178581;
+  --white: #95a3bc;
+  --black: #f1f1e6;
+  --good: #37b9b7;
+  --bad: #ff6274;
+  --dim: #889fc9;
+  --dim-2: #4f658f;
+  --light: #1a335f;
 }
 
 * {
@@ -389,10 +401,10 @@ footer {
 @keyframes fade {
     from {
         opacity: 0.1;
-        transform: translateX(-35%);
+        transform: translateY(-35%);
     } to {
         opacity: 1;
-        transform: translateX(0%);
+        transform: translateY(0%);
     }
 }
 .card, .button.new {
@@ -407,3 +419,9 @@ footer {
     animation-name: fade;
     animation-duration: 1s;
 }
+
+body {
+  animation-name: fade;
+  animation-duration: .5s;
+}
+
