@@ -175,7 +175,7 @@ header {
 }
 
 .moon::before {
-  content: "\1F31C";
+  content: "🌛";
   position: absolute;
 }
 
@@ -189,7 +189,7 @@ header {
 }
 
 .sun::before {
-  content: "\1F31E";
+  content: "🌞";
   position: absolute;
 }
 
@@ -384,7 +384,6 @@ footer {
   color: var(--black);
   opacity: 0.6;
 }
-
 
 @media (min-width: 800px) {
   html {
