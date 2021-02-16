@@ -2,9 +2,19 @@
 
 const html = document.querySelector('html')
 const toggleTheme = document.getElementById('toggle')
+const logo = document.getElementById('logo')
+
+const toggleLogo = darkThemeIsActive => {
+  darkThemeIsActive
+    ? (logo.src = './assets/logo-dark.svg')
+    : (logo.src = './assets/logo-light.svg')
+}
 
 toggleTheme.addEventListener('change', () => {
   const isActive = html.classList.toggle('dark-theme')
+
+  toggleLogo(isActive)
+
   setDarkThemeStorage(isActive)
 })
 
