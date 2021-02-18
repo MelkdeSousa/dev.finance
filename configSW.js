@@ -7,12 +7,14 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
 }
 
-window.addEventListener('beforeinstallprompt', eventBeforeInstallPrompt => {
-  eventBeforeInstallPrompt.preventDefault()
+if ('onbeforeinstallprompt' in window) {
+  window.addEventListener('beforeinstallprompt', eventBeforeInstallPrompt => {
+    eventBeforeInstallPrompt.preventDefault()
 
-  beforeInstallPrompt = eventBeforeInstallPrompt
-})
+    beforeInstallPrompt = eventBeforeInstallPrompt
+  })
 
-paragraphFooter.addEventListener('click', () => {
-  beforeInstallPrompt.prompt()
-})
+  paragraphFooter.addEventListener('click', () => {
+    beforeInstallPrompt.prompt()
+  })
+}
