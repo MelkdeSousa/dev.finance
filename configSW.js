@@ -1,6 +1,6 @@
 'use strict'
 
-const paragraphFooter = document.querySelector('footer p')
+const installPWA = document.querySelector('#install-pwa')
 let beforeInstallPrompt
 
 if ('serviceWorker' in navigator) {
@@ -14,7 +14,7 @@ if ('onbeforeinstallprompt' in window) {
     beforeInstallPrompt = eventBeforeInstallPrompt
   })
 
-  paragraphFooter.addEventListener('click', () => {
+  installPWA.addEventListener('click', () => {
     beforeInstallPrompt.prompt()
   })
 }
