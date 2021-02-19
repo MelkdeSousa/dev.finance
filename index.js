@@ -122,6 +122,8 @@ const getFields = () => {
   const amount = document.querySelector('input#amount')
   const date = document.querySelector('input#date')
 
+  console.log('-> getFields: ', amount)
+
   return {
     description,
     amount,
@@ -148,7 +150,7 @@ const validateFieldsForm = () => {
 }
 
 const formatAmount = value => {
-  const amount = Number(value) * 100
+  const amount = Number(value.replace(/[ ,.]+/g, '.')) * 100
 
   return Math.round(amount)
 }
@@ -163,6 +165,9 @@ const formatValues = () => {
   const { description, amount, date } = getValuesFieldsForm()
 
   const amountFormated = formatAmount(amount)
+
+  console.log('-> formatValues: ', amountFormated)
+
   const dateFormated = formatDate(date)
 
   return {
