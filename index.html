@@ -13,15 +13,17 @@
   <meta name="mobile-web-app-capable" content="yes">
 
   <!-- iOS -->
-  <meta name="apple-mobile-web-app-title" content="Application Title">
+  <meta name="apple-mobile-web-app-title" content="dev.finance">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
+  <link rel="mask-icon" href="./assets/favicons/safari-pinned-tab.svg" color="#2c5fcb">
 
   <!-- Windows  -->
   <meta name="msapplication-navbutton-color" content="#2c5fcb">
   <meta name="msapplication-TileColor" content="#2c5fcb">
-  <meta name="msapplication-TileImage" content="./assets/icons/icon-144x144.png">
-  <meta name="msapplication-config" content="browserconfig.xml">
+  <meta name="msapplication-TileImage" content="./assets/favicons/mstile-150x150.png">
+  <meta name="msapplication-config" content="./assets/favicons/browserconfig.xml">
 
   <!-- Pinned Sites  -->
   <meta name="application-name" content="dev.finance">
@@ -48,7 +50,10 @@
   <meta name="screen-orientation" content="portrait">
 
   <link rel="stylesheet" href="./styles.css" />
-  <link rel="icon" type="image/png" href="./assets/favicon.ico" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" href="./assets/favicons/favicon.ico" />
   <link rel="manifest" href="manifest.webmanifest">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -126,6 +131,8 @@
         <tbody></tbody>
       </table>
     </section>
+
+    <div id="line"></div>
   </main>
 
   <div class="modal-overlay">
@@ -162,7 +169,22 @@
   </div>
 
   <footer>
-    <p>dev.finance$ - 2021</p>
+
+    <div>
+      <a href="https://github.com/MelkdeSousa" target="_blank">
+        <img id="profile-photo" src="https://github.com/MelkdeSousa.png" alt="Logo github">
+        <p>Created by MelkdeSousa</p>
+      </a>
+    </div>
+
+    <p>dev.finance - 2021</p>
+
+    <div>
+      <a href="https://github.com/MelkdeSousa/dev.finance" target="_blank">
+        <img id="profile-photo" src="./assets/logo-github.svg" alt="Logo github">
+        <p>Repository of project</p>
+      </a>
+    </div>
   </footer>
 </body>
 
